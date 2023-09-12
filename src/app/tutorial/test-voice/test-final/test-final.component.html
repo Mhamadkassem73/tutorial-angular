@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child-Friendly Congratulations</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Center vertically and make full-height */
+            margin: 0;
+        }
+
+        .congratulations {
+            text-align: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Playful font */
+            background-color: #f68d2e; /* Vibrant background color */
+            padding: 20px;
+            border-radius: 10px; /* Add rounded corners */
+            color: white; /* Text color */
+            width: 100%; /* Make full-width */
+        }
+
+        h1 {
+            font-size: 36px; /* Increase the font size for emphasis */
+        }
+
+        p {
+            font-size: 18px; /* Adjust font size for readability */
+            margin-top: 10px; /* Add spacing between elements */
+        }
+
+        /* Add a playful illustration */
+        .congratulations::before {
+            content: "🎉"; /* Example: Use a confetti emoji as an illustration */
+            font-size: 64px; /* Adjust the size of the illustration */
+            display: block;
+            margin: 20px auto; /* Center the illustration horizontally */
+        }
+
+        /* Hover effect to make it more interactive */
+        .congratulations:hover {
+            background-color: #ffecb3; /* Change background color on hover */
+            color: #333; /* Change text color on hover for better readability */
+        }
+    </style>
+</head>
+<body>
+    <div class="congratulations">
+        <h1>مبروك</h1>
+        <br>
+        <p>تابع التقدم</p>
+    </div>
+</body>
+</html>

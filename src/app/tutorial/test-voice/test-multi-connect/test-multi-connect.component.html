@@ -1,0 +1,44 @@
+
+
+<div class="connections">
+    <div *ngFor="let connection of connections">
+        <span class="connection" *ngIf="isConnected(connection)">{{ connection.left }} &#8594; {{ connection.right
+            }}</span>
+    </div>
+</div>
+
+
+
+
+<div class="container">
+  <div class="header">
+      <p><b> <u>أوصل</u> </b></p>
+  </div>
+  <div class="grid-container">
+    <div class="column left-column">
+      <div *ngFor="let item of leftColumn"
+      class="column" 
+           [class.selected]="isSelectedLeft(item)" 
+           [style.background-color]="isSelectedLeft(item) ? selectedItemColor : ''"
+           class="item" 
+           (click)="selectedLeftItem = item; matchItems()">
+        {{ item }}
+      </div>
+    </div>
+    <div class="column right-column">
+      <div *ngFor="let item of rightColumn" 
+           [class.selected]="isSelectedRight(item)" 
+           [style.background-color]="isSelectedRight(item) ? selectedItemColor : ''"
+           class="item" 
+           (click)="selectedRightItem = item; matchItems()">
+        {{ item }}
+      </div>
+    </div>
+  </div>
+  <div class="mt-5 mb-5">
+      <button (click)="goToNextPage()" class="sm:inline-flex ml-3 mb-6 " mat-flat-button [color]="'green'">
+          <mat-icon class="icon-size-5" [svgIcon]=" 'heroicons_outline:plus' "></mat-icon>
+          <span class="ml-2">{{getLabel('next')}}</span>
+      </button>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<ng-container [formGroup]="form">
+  <mat-form-field class="w-full">
+    <mat-label>{{getLabel(label)}}</mat-label>
+    <input type="text" #publicSearchBox matInput [formControlName]="control" [matAutocomplete]="auto">
+    <mat-autocomplete (optionSelected)="autoCompleteSelection($event.option.value)" autoActiveFirstOption
+      #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-icon tabindex="-1" (click)="$event.stopPropagation();hintSelection()"
+        *ngIf="hasHint" matSuffix class="icon-size-4"
+        [svgIcon]="'heroicons_outline:search'">
+    </mat-icon>
+  </mat-form-field>
+</ng-container>

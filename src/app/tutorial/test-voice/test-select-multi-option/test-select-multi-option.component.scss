@@ -1,0 +1,106 @@
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+}
+.container {
+  display: flex;
+  width:70%;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px auto;
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size:30px;
+  width:100%;
+  font-family: 'Lateef', cursive;
+}
+
+.col {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button-table {
+padding: 8px;
+width: 100%;
+margin: 2px;
+background-color: rgba(127, 238, 241, 0.1); /* Adjust the alpha value (0.5) as needed for transparency */
+border: 1px solid #85ccf5;
+  
+}
+
+.button-row {
+padding: 8px;
+margin: 2px;
+background-color: #7feef1;
+border: 1px solid #85ccf5;
+border-radius: 10px; /* Add rounded corners */
+color: #333; /* Use a slightly darker text color for better readability */
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+box-sizing: border-box;
+cursor: pointer; /* Use a pointer cursor to indicate interactivity */
+font-size: 30px; /* Slightly increase font size for better readability */
+font-family: 'Lateef', cursive;
+
+/* Add some box shadow for a 3D effect */
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button-row::before {
+  content: "🚀"; /* Example: Use a rocket emoji as an illustration */
+  font-size: 30px; /* Adjust the size of the illustration */
+  margin-right: 10px; /* Add spacing between the icon and text */
+  font-family: 'Lateef', cursive;
+}
+
+/* Hover effect to make it more interactive */
+.button-row:hover {
+  font-family: 'Lateef', cursive;
+  background-color: #f68d2e; /* Change background color on hover */
+  color: white; /* Change text color on hover */
+  transform: scale(1.05); /* Slightly scale up on hover */
+  transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Add smooth transitions */
+}
+
+.button-row.selected {
+font-family: 'Lateef', cursive;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.button-row.selected div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Center the text vertically */
+}
+
+.button-row:hover {
+  background-color: #ccc;
+  color: #333;
+}
+
+.button-row:hover div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.footer-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}

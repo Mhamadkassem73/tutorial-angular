@@ -1,0 +1,22 @@
+<link href="https://fonts.googleapis.com/css?family=Lateef" rel="stylesheet">
+<div class="container">
+    <div class="header">
+        <b>{{question}}</b>
+    </div>
+    <img [src]="imageURL" class="image-container" alt="Image">
+
+    <div class="kid-friendly-container">
+        <mat-form-field class="count-input">
+          <input matInput placeholder="Enter Count"  #countInput type="number">
+        </mat-form-field>
+      </div>
+    <div>
+        
+    </div>
+    <div class="mt-5 mb-5"> 
+        <button (click)="goToNextPage(countInput.value)" class="sm:inline-flex ml-3 mb-6 " mat-flat-button [color]="'green'">
+            <mat-icon class="icon-size-5" [svgIcon]=" 'heroicons_outline:plus' "></mat-icon>
+            <span class="ml-2">{{getLabel('next')}}</span>
+        </button>
+    </div>
+</div>

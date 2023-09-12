@@ -1,0 +1,18 @@
+
+ <ng-container [formGroup]="form">
+
+
+    <mat-form-field class="w-full">
+      <mat-label>{{getLabel(label)}}</mat-label>
+    <textarea style="resize: none;"
+
+
+      matInput
+      [formControlName]="control"
+      cols="50" rows="7"  class="border-2">
+    </textarea>
+  </mat-form-field>
+
+</ng-container>
+
+

@@ -1,0 +1,46 @@
+<ng-container [formGroup]="form">
+    <table *ngIf="labelPosition != 'top';else top ">
+        <tbody>
+            <tr>
+                <td class="pr-2 min-w-28 font-extrabold text-1xl"><label>{{getLabel(label)}}</label></td>
+                <td class="w-full">
+                    <mat-form-field class="w-full">
+                        <mat-select #selectBox (focus)="openDropdownList && selectBox.open()" (selectionChange)="onSelectionChange($event)" [formControlName]=" control ">
+                            <mat-option *ngIf="blank" [value]=" '' ">
+                
+                            </mat-option>
+                            <ng-container *ngFor="let option of options">
+                                <mat-option [value]="option[optionValue]">
+                                    {{getLabel(option[optionName])}}<span *ngIf="optionName2"> - {{getLabel(option[optionName2])}}</span>
+                                </mat-option>
+                            </ng-container>
+                        </mat-select>
+                        <mat-icon tabindex="-1" (click)="$event.stopPropagation();hintSelectionDropDown()" *ngIf="hasHint" matSuffix
+                        class="icon-size-4" [svgIcon]="'heroicons_outline:search'">
+                    </mat-icon>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ng-template #top>
+        <mat-form-field class="w-full">
+            <mat-label>{{getLabel(label)}}</mat-label>
+            <mat-select #selectBox (focus)="openDropdownList && selectBox.open()" (selectionChange)="onSelectionChange($event)" 
+                [formControlName]=" control ">
+                <mat-option *ngIf="blank" [value]=" '' ">
+                </mat-option>
+                <ng-container *ngFor="let option of options">
+                    <mat-option [value]="option[optionValue]">
+                        {{getLabel(option[optionName])}}<span *ngIf="optionName2"> - {{getLabel(option[optionName2])}}</span>
+                    </mat-option>
+                </ng-container>
+            </mat-select>
+            <mat-icon tabindex="-1" (click)="$event.stopPropagation();hintSelectionDropDown()" *ngIf="hasHint" matSuffix
+                class="icon-size-4" [svgIcon]="'heroicons_outline:search'">
+            </mat-icon>
+        </mat-form-field>
+    </ng-template>
+    
+</ng-container>

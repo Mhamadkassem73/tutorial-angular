@@ -1,0 +1,93 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin-top: 20px;
+    width:120%;
+  }
+  
+  .column {
+    padding: 10px;
+    background-color: #f0f0f0;
+  }
+  
+  .left-column {
+    border-right: 1px solid #ccc;
+  }
+  
+  .right-column {
+    border-right: 1px solid #ccc;
+  }
+  
+  .item {
+    padding: 10px;
+    margin: 5px;
+   // background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  
+  .connections {
+    margin-top: 20px;
+  }
+  
+  .connection {
+    display: inline-block;
+    margin: 5px;
+  }
+
+
+  .selected {
+    background-color: rgb(174, 219, 235); /* Apply your desired color here */
+  }
+
+  .footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    position: absolute;
+    bottom: 0;
+  }
+  .container {
+    display: flex;
+    width:70%;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    position: relative;
+  }
+  .column {
+    flex-direction: column;
+    padding: 15px 10px; /* Add padding for a softer look */
+    background-color: #c6f5f7;
+    border: 1px solid #85ccf5;
+    border-radius: 10px; /* Add rounded corners */
+    color: #333; /* Use a slightly darker text color for better readability */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: pointer; /* Use a pointer cursor to indicate interactivity */
+    font-size: 16px; /* Slightly increase font size for better readability */
+
+    /* Add a playful icon or illustration as content */
+    position: relative;
+}
+
+.column::before {
+    content: "🎈"; /* Example: Use a balloon emoji as an illustration */
+    font-size: 24px; /* Adjust the size of the illustration */
+    margin-bottom: 10px; /* Add spacing between the icon and text */
+}
+
+/* Hover effect to make it more interactive */
+.column:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  

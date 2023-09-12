@@ -1,0 +1,20 @@
+
+<app-erp-grid #erpGrid [buttons]="buttons" *ngIf="!endButtons"
+[screen]="screen" (onPrintDirect)="onPrint($event)"
+[withFooter]="withFooter"
+[footerCols]="footerCols"
+[price]="price"
+[timeFrameWithMax]="timeFrameWithMax"
+(onStartRowSelect)="onCheckboxSelection($event)"
+(onAllSelection)="onAllSelectionGrid($event)"
+(rowsSelectionEvent)="onRowsSelection($event)"
+[checkboxLabel]="checkboxLabel"
+(onElementEdit)="onEdit($event)" [columns]="columns">
+</app-erp-grid> 
+
+<app-erp-grid #erpGrid [buttons]="buttons" *ngIf="endButtons"
+[screen]="screen" (onPrintDirect)="onPrint($event)"
+[endButtons]="endButtons"
+[columnsExpand]="columnsExpand"
+(onElementEdit)="onEdit($event)" [columns]="columns">
+</app-erp-grid> 

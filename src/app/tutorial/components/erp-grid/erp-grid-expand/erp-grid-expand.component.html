@@ -1,0 +1,9 @@
+<app-erp-grid (journalCstCheckBillEvent)="onCstCheckBillSelection($event)"
+(onClickButtonEdit)="onButtonEdit($event)"
+(onClickButtonPrint)="onButtonPrint($event)"
+[endButtons]="columnsExpandButtons"
+              [hasInitialHeader]="true"
+              [initialHeaderColumnsDef]="initialHeaderColumnsDef" [initialHeaderColumns]="initialHeaderColumns"
+[expandColor]="expandColor" #erpGridExpand
+[columns]="columnsExpand">
+</app-erp-grid>

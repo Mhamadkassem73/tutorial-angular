@@ -1,0 +1,91 @@
+<ng-container [formGroup]="form">
+    <table *ngIf="labelPosition != 'top';else top ">
+        <tbody>
+            <tr>
+                <td *ngIf="label" class="pr-2 min-w-28 font-semibold text-sm"><label>{{getLabel(label)}}</label></td>
+                <td *ngIf="!label"></td>
+                <td class="w-full">
+                    <mat-form-field class="w-full">
+                        <span *ngIf="prefix">{{prefix}}</span>
+                        <input [class]="class"  #fieldValue *ngIf="focusOn && !numberOnly" [readonly]="view" [tabindex]="view ? -1 : null"
+                            appPrefixFocusAndSelect [type]="type" matInput (change)="onChangeValue($event,control)"
+                            [placeholder]="hint" [formControlName]="control">
+                        <input [class]="class"  #fieldValue *ngIf="!focusOn && !numberOnly && controlGroup" [readonly]="view" [tabindex]="view ? -1 : null"
+                            [type]="type" matInput (change)="onChangeValue($event,control)" [placeholder]="hint"
+                            [formControlName]="control"     [controlGroup]="controlGroup">
+                        <input [class]="class"  #fieldValue *ngIf="!focusOn && !numberOnly && !controlGroup" [readonly]="view" [tabindex]="view ? -1 : null"
+                            [type]="type" matInput (change)="onChangeValue($event,control)" [placeholder]="hint"
+                            [formControlName]="control" >
+
+                        <input [class]="class"  numbersOnly *ngIf="numberOnly" [readonly]="view" [tabindex]="view ? -1 : null"
+                            [type]="type" (change)="onChangeValue($event,control)" matInput [placeholder]="hint"
+                            [controlGroup]="control">
+
+
+
+                        <mat-icon tabindex="-1" (click)="$event.stopPropagation();hintSelectionField()" *ngIf="hasHint"
+                            matSuffix class="icon-size-4" [svgIcon]="'heroicons_outline:search'">
+                        </mat-icon>
+
+                        <mat-icon tabindex="-1" (click)="$event.stopPropagation();removeSelectionField()"
+                            *ngIf="hasRemove" matPreffix class="icon-size-4" [svgIcon]="'heroicons_outline:x'">
+                        </mat-icon>
+                        <mat-icon tabindex="-1" (click)="$event.stopPropagation();generateSelection()"
+                        *ngIf="generate" matPreffix class="icon-size-4" [svgIcon]="'heroicons_solid:plus'">
+                    </mat-icon>
+
+
+
+
+                        <button *ngIf="eyePass" mat-icon-button type="button"
+                            (click)="fieldValue.type === 'password' ? fieldValue.type = 'text' : fieldValue.type = 'password'"
+                            matSuffix>
+                            <mat-icon class="icon-size-5" *ngIf="fieldValue.type === 'password'"
+                                [svgIcon]="'heroicons_solid:eye'"></mat-icon>
+                            <mat-icon class="icon-size-5" *ngIf="fieldValue.type === 'text'"
+                                [svgIcon]="'heroicons_solid:eye-off'"></mat-icon>
+                        </button>
+
+
+                    </mat-form-field>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ng-template #top>
+        <mat-form-field class="w-full">
+            <mat-label>{{getLabel(label)}}</mat-label>
+            <span *ngIf="prefix">{{prefix}}</span>
+            <input #fieldValue *ngIf="focusOn && !numberOnly" [readonly]="view" [tabindex]="view ? -1 : null"
+                appPrefixFocusAndSelect [type]="type" (change)="onChangeValue($event,control)" matInput
+                [placeholder]="hint" [formControlName]="control">
+            <input #fieldValue *ngIf="!focusOn && !numberOnly" [readonly]="view" [tabindex]="view ? -1 : null" [type]="type"
+                (change)="onChangeValue($event,control)" matInput [placeholder]="hint" [formControlName]="control">
+            <input #fieldValue numbersOnly *ngIf="numberOnly" [readonly]="view" [tabindex]="view ? -1 : null" [type]="type"
+                (change)="onChangeValue($event,control)" matInput [placeholder]="hint" [formControlName]="control">
+            <mat-icon tabindex="-1" (click)="$event.stopPropagation();hintSelectionField()" *ngIf="hasHint" matSuffix
+                class="icon-size-4" [svgIcon]="hintIcon">
+            </mat-icon>
+
+            <mat-icon tabindex="-1" (click)="$event.stopPropagation();removeSelectionField()" *ngIf="hasRemove"
+                matPreffix class="icon-size-4" [svgIcon]="'heroicons_outline:x'">
+            </mat-icon>
+            <mat-icon tabindex="-1" (click)="$event.stopPropagation();generateSelection()"
+            *ngIf="generate" matPreffix class="icon-size-4" [svgIcon]="'heroicons_solid:plus'">
+        </mat-icon>
+            <button *ngIf="eyePass" mat-icon-button type="button"
+                (click)="type === 'password' ? type = 'text' : type = 'password' "
+                matSuffix>
+                <mat-icon class="icon-size-5" *ngIf="type === 'password'" [svgIcon]="'heroicons_solid:eye'">
+                </mat-icon>
+                <mat-icon class="icon-size-5" *ngIf="type === 'text'" [svgIcon]="'heroicons_solid:eye-off'">
+                </mat-icon>
+            </button>
+            <mat-error *ngIf="eyePass && form.get(control).hasError('pattern') ">
+                {{getLabel('passwordPattern')}}
+            </mat-error>
+        </mat-form-field>
+    </ng-template>
+
+</ng-container>

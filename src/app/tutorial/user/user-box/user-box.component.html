@@ -1,0 +1,96 @@
+<div class="flex flex-col flex-auto md:w-200 md:min-w-200 overflow-y-hidden -m-6">
+
+    <!-- Header -->
+    <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary">
+        <div class="text-lg font-medium">{{getLabel('user')}}
+        </div>
+        <button
+            (click)="close()"
+            mat-icon-button
+            [tabIndex]="-1">
+            <mat-icon
+                class="text-current"
+                [svgIcon]="'heroicons_outline:x'"></mat-icon>
+        </button>
+    </div>
+
+
+
+    <div class="flex flex-auto overflow-hidden">
+
+        <div class="flex flex-col flex-auto sm:mb-4 overflow-hidden overflow-y-auto">
+            <form
+            class="flex flex-col flex-auto p-6 sm:p-8"
+            [formGroup]="areasForm">
+
+                <div class="flex">
+                    <app-input-field class="w-full pr-2" [label]=" 'userName' "
+                        [control]=" 'userName' " [form]="areasForm" [type]=" 'text' ">
+                    </app-input-field>
+                </div>
+                <div class="flex">
+                    <app-input-field class="w-full pr-2" [label]=" 'password' "
+                        [control]=" 'password' " [form]="areasForm" [type]=" 'password' ">
+                    </app-input-field>
+                </div>
+                <div class="flex">
+                    <app-input-field class="w-full pr-2" [label]=" 'name' "
+                        [control]=" 'name' " [form]="areasForm" [type]=" 'text' ">
+                    </app-input-field>
+                </div>
+                <div class="flex">
+                    <app-input-field class="w-full pr-2" [label]=" 'userEmail' "
+                        [control]=" 'userEmail' " [form]="areasForm" [type]=" 'text' ">
+                    </app-input-field>
+                </div>
+                <div class="flex">
+                    <app-input-field class="w-full pr-2" [label]=" 'userPhone' "
+                        [control]=" 'userPhone' " [form]="areasForm" [type]=" 'text' ">
+                    </app-input-field>
+                </div>
+                <div class="flex">
+                    <app-dropdown-field [optionValue]=" 'code' " [optionName]=" 'name' "
+                        [options]="userRoles" class="w-full pr-2" [label]=" 'userRole' "
+                        [blank]="true"
+                        [control]=" 'userRole' " [form]="areasForm">
+                    </app-dropdown-field>
+                </div>
+                <div class="flex">
+                    <app-dropdown-field [optionValue]=" 'code' " [optionName]=" 'code' "
+                        [options]="levels" class="w-full pr-2" [label]=" 'userLevel' "
+                        [blank]="true"
+                        [control]=" 'userLevel' " [form]="areasForm">
+                    </app-dropdown-field>
+                </div>
+
+                <app-check-box class="w-1/4 pr-6 mt-8" [control]=" 'userIsActive' " [form]="areasForm"
+                [label]=" 'userIsActive' " [value]="true">
+            </app-check-box>
+
+
+                    <!-- Actions -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-end">
+                    
+                        <button
+                            class="order-first sm:order-last"
+                            mat-flat-button
+                            (click)="saveUser()"
+                            [disabled]="areasForm.disabled"
+                            [color]="'primary'"
+                            >
+                            <mat-icon class="icon-size-5" [svgIcon]=" 'heroicons_outline:plus' "></mat-icon>
+                            <span class="ml-2" *ngIf="!areasForm.disabled">{{!selectedUser ? getLabel('add') : getLabel('update')}}</span>
+                            <mat-progress-spinner
+                                *ngIf="areasForm.disabled"
+                                [diameter]="24"
+                                [mode]="'indeterminate'"></mat-progress-spinner>
+                        </button>
+                </div>
+            
+
+                </form>
+            </div>
+
+</div>
+
+</div>

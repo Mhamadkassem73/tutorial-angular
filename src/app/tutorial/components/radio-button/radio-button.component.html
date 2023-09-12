@@ -1,0 +1,9 @@
+<ng-container [formGroup]="form">
+    <mat-radio-group (change)="onChangeRadioButton($event)" [formControlName]="control" class="flex" style=" display: flex; flex-direction: {{direction}};"> 
+        <mat-radio-button *ngFor="let radio of radiosButtons" [value]="radio.value" class="pt-2 mx-2">
+            <span class="font-extrabold text-1xl">
+                {{getLabel(radio.name)}}
+            </span>            
+        </mat-radio-button>
+    </mat-radio-group>
+</ng-container>

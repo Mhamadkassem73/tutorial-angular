@@ -1,0 +1,11 @@
+<ng-container [formGroup]="form" >
+    <mat-checkbox (change)="checkboxCheked($event,control)" [formControlName]="control"
+        color='primary' [value]="value"> 
+        <span class="font-extrabold text-1xl">
+            {{getLabel(label)}}
+        </span>
+    </mat-checkbox>
+</ng-container>
+ 
+
+

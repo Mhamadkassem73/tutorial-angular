@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="header">
+    <div class="component-container">
+      <div class="audio-section">
+        <button class="play-button" (click)="playAudio()"></button>
+        <audio #audioPlayer controls class="audio-player">
+          <source [src]="audioUrl" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </div>
+  <div class="background-image"></div>
+  <div class="footer">
+    <button class="next-button" (click)="goToNextPage()">
+      <span class="icon">➡️</span>
+      <span class="text">{{ getLabel('next') }}</span>
+    </button>
+  </div>
+</div>

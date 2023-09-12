@@ -1,0 +1,57 @@
+<ng-container [formGroup]="form">
+    <table *ngIf="labelPosition != 'top';else top ">
+        <tr>
+            <td class="pr-2 min-w-28 font-extrabold text-1xl"><label>{{getLabel(label)}}</label></td>
+            <td class="w-full">
+                <mat-form-field class="w-full">
+                    <mat-select multiple [formControlName]=" control ">
+                        <ng-container>
+                            <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">
+                                {{getLabel('all')}}
+                            </mat-option>
+                        </ng-container>
+                        <ng-container *ngFor="let option of options">
+                            <mat-option [value]="option[optionValue]" (click)="tosslePerOne(allSelected.viewValue)" [value]="option[optionValue]">
+                                {{getLabel(option[optionName])}}
+                            </mat-option>
+                        </ng-container>
+            
+                    </mat-select>
+                </mat-form-field>
+            </td>
+        </tr>
+
+    </table>
+
+
+
+
+
+
+
+
+
+   <ng-template #top>
+    <mat-form-field class="w-full">
+        <mat-label>{{getLabel(label)}}</mat-label>
+        <mat-select multiple [formControlName]=" control ">
+
+
+            <ng-container>
+                <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">
+                    {{getLabel('all')}}
+                </mat-option>
+            </ng-container>
+            <ng-container *ngFor="let option of options">
+                <mat-option [value]="option[optionValue]" (click)="tosslePerOne(allSelected.viewValue)" 
+                    [value]="option[optionValue]">
+                    {{getLabel(option[optionName])}}
+                </mat-option>
+            </ng-container>
+
+        </mat-select>
+    </mat-form-field>
+
+   </ng-template>
+
+</ng-container>

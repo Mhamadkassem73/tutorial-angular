@@ -1,0 +1,127 @@
+.mat-column-edit,.mat-column-delete,.mat-column-info,
+.mat-column-info,.mat-column-copy,.mat-column-reverse
+.mat-column-add,.mat-column-print,.mat-column-printNoMenu,.mat-column-goTo,.mat-column-upload,.mat-column-request,
+.mat-column-openDetails,.mat-column-report
+{
+    flex: 0 0 2.5pc;
+}
+
+
+.mat-row.example-detail-row {
+    min-height: 0 !important;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    width: 100%;
+}
+
+:host ::ng-deep mat-row, mat-footer-row  {
+    min-height: 35px !important;
+}
+
+:host ::ng-deep mat-header-row {
+    min-height: 35px !important;
+}
+
+/*
+ start : list-transactions.component.html style
+*/
+.mat-column-listTransactionLedgerName
+{
+    flex: 0 0 17%;
+}
+.mat-column-listTransactionReference,.mat-column-listTransactionDate,.mat-column-listTransactionFolio
+{
+    flex: 0 0 6%; 
+}
+.mat-column-listTransactionLedgerNumber
+{
+    flex: 0 0 7%;
+}
+
+.mat-cell
+{
+    font-size: 1em !important;
+}
+
+.mat-column-ledgerLevelNumber,.mat-column-ledgerLevelName
+{
+    flex: 0 0 40%;
+}
+
+
+/*
+ end : list-transactions.component.html style
+*/
+
+
+/*
+ start : chalet
+*/
+.mat-column-chaletProject,.mat-column-chaletLedger
+{
+    flex: 0 0 13%;
+}
+/*
+ end : chalet
+*/
+
+
+/*
+ start : management list
+*/
+.mat-column-managementDetailLedgerNumberDebit,
+.mat-column-managementDetailLedgerNumberCredit {
+    flex: 0 0 8.5%;
+}
+
+
+.mat-column-managementDetailLedgerNameDebit,
+.mat-column-managementDetailLedgerNameCredit {
+    flex: 0 0 18%;
+}
+
+.mat-column-ledgerNameDebitFirst,.mat-column-ledgerNameCreditFirst
+{
+    flex: 0 0 7.5%;
+}
+
+.mat-column-ledgerNumberDebitFirst
+{
+    flex: 0 0 14%;
+}
+
+.mat-column-ledgerNumberCreditFirst
+{
+    flex: 0 0 22%;
+}
+.mat-column-img
+{
+    flex: 0 0 2%;
+}
+
+.mat-column-viewStatement
+{
+    flex: 0 0 5%;
+}
+
+// BUDGET SCREEN
+.mat-column-budgetYear,.mat-column-currency {
+    flex: 0 0 20%;
+}
+
+/*
+ start : receipts registration list
+*/
+.mat-column-receiptNumber
+{
+    flex: 0 0 8%;
+}
+/*
+ end : receipts registration list
+*/

@@ -1,0 +1,20 @@
+<link href="https://fonts.googleapis.com/css?family=Lateef" rel="stylesheet">
+<div class="container">
+    <div class="header">
+        <p><b>اختر <u>الاجابة</u> الصحيحة </b></p>
+        <p>
+            <b>{{question}}</b>
+        </p>
+    </div>
+    <div class="button-table" [ngStyle]="{'min-height': minTableHeight}">
+        <div *ngFor="let dt of data" class="button-row" [class.selected]="dt === selectedTeam" (click)="onSelected(dt)">
+            {{ dt.value }}
+        </div>
+    </div>
+    <div class="mt-5 mb-5"> 
+        <button (click)="goToNextPage()" class="sm:inline-flex ml-3 mb-6 " mat-flat-button [color]="'green'">
+            <mat-icon class="icon-size-5" [svgIcon]=" 'heroicons_outline:plus' "></mat-icon>
+            <span class="ml-2">{{getLabel('next')}}</span>
+        </button>
+    </div>
+</div>
