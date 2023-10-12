@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { SnackBarService } from 'app/tutorial/services/snack-bar.service';
 import { Shared } from 'app/tutorial/shared/shared';
@@ -17,13 +17,16 @@ export class TestSelectMultiOptionComponent extends Shared implements OnInit {
 
   ngOnInit(): void {
   }
-  question = "ما هي الكلمات التي تبدأ بحرف ال ب";
-  data = [
-    { value: 'منزل', istrue: false, selected: false },
-    { value: 'باب', istrue: true, selected: false },
-    { value: 'بركة', istrue: true, selected: false },
-    { value: 'وجبة', istrue: false, selected: false }];
-  selectedTeam = { value: '----------------------', istrue: "false" };
+  @Output() nextQuestion = new EventEmitter<any>();
+  // question = "ما هي الكلمات التي تبدأ بحرف ال ب";
+  @Input('question') question :string;
+  @Input('data') data : { value: string, isTrue: boolean ,selected:boolean}[];
+  // data = [
+  //   { value: 'منزل', isTrue: false, selected: false },
+  //   { value: 'باب', isTrue: true, selected: false },
+  //   { value: 'بركة', isTrue: true, selected: false },
+  //   { value: 'وجبة', isTrue: false, selected: false }];
+  selectedTeam = { value: '----------------------', isTrue: "false" };
   minTableHeight: string = '20vh'; // Set to 50% of the viewport height
 
   toggleSelection(option: any): void {
@@ -31,24 +34,39 @@ export class TestSelectMultiOptionComponent extends Shared implements OnInit {
   }
   goToNextPage() {
     var test = false;
+    var answers='';
     for (var i = 0; i < this.data.length; i++) {
-      if (this.data[i].selected != this.data[i].istrue) {
+      if (this.data[i].selected != this.data[i].isTrue) {
         test = true;
+      }
+      if(this.data[i].selected)
+      {
+        answers += this.data[i].value+ "  ";
       }
     }
 
     if (test === true) {
 
-      this._snackBarService.openConfirmationDialog("ttile", "msg", "confirm", "go to next").then(response => {
+      this._snackBarService.openConfirmationDialog("الجواب غير صحيح", "يرجى اعادة الاجابة", "confirm", "التالي").then(response => {
         if (response == 'confirmed') {
-          this._router.navigateByUrl('/test/test-multi-connect');
+          var data={
+            isTrue:false,
+            answer:answers
+          };
+          this.nextQuestion.emit(data);
+         // this._router.navigateByUrl('/test/test-multi-connect');
 
         }
       });
 
     }
     else {
-      this._router.navigateByUrl('/test/test-multi-connect');
+      var data={
+        isTrue:true,
+        answer:answers
+      };
+      this.nextQuestion.emit(data);
+      //this._router.navigateByUrl('/test/test-multi-connect');
 
     }
   }

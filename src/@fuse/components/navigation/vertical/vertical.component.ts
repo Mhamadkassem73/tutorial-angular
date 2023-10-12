@@ -754,6 +754,13 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
         this.navigation = []; // reset to default
         this.navigation = [
             {
+                id: "question",
+                title: 'question',
+                type: "basic",
+                icon: "heroicons_solid:location-marker",
+                link: "test/question",
+            },
+            {
                 id: "users",
                 title: "users",
                 type: "collapsable",
@@ -817,6 +824,13 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
                         type: "basic",
                         icon: "heroicons_solid:location-marker",
                         link: "test/test-count",
+                    },
+                    {
+                        id: "test-true-phrase",
+                        title: 'test-true-phrase',
+                        type: "basic",
+                        icon: "heroicons_solid:location-marker",
+                        link: "test/test-true-phrase",
                     },
                     {
                         id: "test-final",

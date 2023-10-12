@@ -35,7 +35,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TestSelectMultiOptionComponent } from './test-select-multi-option/test-select-multi-option.component';
 import { TestMultiConnectComponent } from './test-multi-connect/test-multi-connect.component';
 import { TestFinalComponent } from './test-final/test-final.component';
-import { TestCountComponent } from './test-count/test-count.component'; 
+import { TestCountComponent } from './test-count/test-count.component';
+import { TestCheckTruePhraseComponent } from './test-check-true-phrase/test-check-true-phrase.component';
+import { QuestionComponent } from './question/question.component'; 
 
 
 @NgModule({
@@ -85,6 +87,8 @@ import { TestCountComponent } from './test-count/test-count.component';
         TestMultiConnectComponent,
         TestFinalComponent,
         TestCountComponent,
+        TestCheckTruePhraseComponent,
+        QuestionComponent,
     ]
 })
 export class TestVoiceModule {

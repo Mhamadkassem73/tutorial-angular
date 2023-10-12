@@ -1,7 +1,8 @@
-<div class="container">
+<div class="container" >
   <div class="header">
     <div class="component-container">
       <div class="audio-section">
+
         <button class="play-button" (click)="playAudio()"></button>
         <audio #audioPlayer controls class="audio-player">
           <source [src]="audioUrl" type="audio/mpeg">
@@ -9,11 +10,13 @@
       </div>
     </div>
   </div>
-  <div class="background-image"></div>
+  <img [src]="imageURL" class="image-container" alt="Image">
   <div class="footer">
-    <button class="next-button" (click)="goToNextPage()">
-      <span class="icon">➡️</span>
-      <span class="text">{{ getLabel('next') }}</span>
-    </button>
+    <div class="mt-5 mb-5"> 
+      <button (click)="goToNextPage()" class="sm:inline-flex ml-3 mb-6 " mat-flat-button [color]="'green'">
+          <mat-icon class="icon-size-5" [svgIcon]=" 'heroicons_outline:plus' "></mat-icon>
+          <span class="ml-2">{{getLabel('next')}}</span>
+      </button>
+  </div>
   </div>
 </div>

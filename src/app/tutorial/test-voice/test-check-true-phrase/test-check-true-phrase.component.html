@@ -1,0 +1,27 @@
+<link href="https://fonts.googleapis.com/css?family=Lateef" rel="stylesheet">
+<div class="container">
+    <div class="header">
+        <b>{{question}}</b>
+    </div>
+    <div >
+        <div *ngFor="let phrase of phrases" class="box-container">
+            <label>
+              <span class="phrase-text">{{ phrase.text }}</span>
+              <input type="checkbox" [(ngModel)]="phrase.isChecked" />
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          
+          
+      </div>
+    <div>
+        
+    </div>
+    <div class="mt-5 mb-5"> 
+        <button (click)="goToNextPage()" class="sm:inline-flex ml-3 mb-6 " mat-flat-button [color]="'green'">
+            <mat-icon class="icon-size-5" [svgIcon]=" 'heroicons_outline:plus' "></mat-icon>
+            <span class="ml-2">{{getLabel('next')}}</span>
+        </button>
+    </div>
+</div>
+

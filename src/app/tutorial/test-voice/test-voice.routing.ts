@@ -6,6 +6,8 @@ import { TestSelectMultiOptionComponent } from "./test-select-multi-option/test-
 import { TestMultiConnectComponent } from "./test-multi-connect/test-multi-connect.component";
 import { TestFinalComponent } from "./test-final/test-final.component";
 import { TestCountComponent } from "./test-count/test-count.component";
+import { TestCheckTruePhraseComponent } from "./test-check-true-phrase/test-check-true-phrase.component";
+import { QuestionComponent } from "./question/question.component";
 
 
 
@@ -38,6 +40,16 @@ export const TestVoiceRoutes: Route[] = [
     {
         path     : 'test-count',
         component: TestCountComponent
+    },
+    {
+        path     : 'test-true-phrase',
+        component: TestCheckTruePhraseComponent
+
+    },
+    {
+        path     : 'question',
+        component: QuestionComponent
+
     },
 
 ];

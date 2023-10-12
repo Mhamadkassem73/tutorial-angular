@@ -5,7 +5,7 @@
         <!-- Title -->
         <div>
             <div class="text-4xl font-extrabold tracking-tight leading-none">
-                {{getLabel('users')}}
+                {{getLabel('user')}} 
             </div>
         </div>
 
@@ -29,14 +29,14 @@
                 </mat-form-field> -->
             </div>
             
-                <button
+                <!-- <button
                 (click)="addUser()" 
             class="sm:inline-flex ml-3" mat-flat-button [color]="'primary'">
                 <mat-icon class="icon-size-5" 
 
                 [svgIcon]=" 'heroicons_outline:plus' "></mat-icon>
                 <span class="ml-2">{{getLabel('add')}}</span>
-            </button>
+            </button> -->
             </div>
 
         </div>
@@ -45,11 +45,9 @@
 
             <!-- Areas list -->
             <div class="flex flex-col flex-auto sm:mb-4 overflow-hidden sm:overflow-y-auto">
-                <app-erp-grid #userGrid [buttons]="['edit','info']"
-                    (onElementEdit)="editUser($event)"
-                    (onElementInfo)="goToInfoPage($event)"
+                <app-erp-grid #userGrid [buttons]="[]"
                     [columns]="columns"
-                    [screen]=" 'areas'">
+                    [screen]=" 'user'">
                 </app-erp-grid>
             </div>
         </div>
@@ -63,8 +61,3 @@
         </mat-paginator>
 
     </div>
-
-    <!-- [pageSizeOptions]="[5, 10, 20]" -->
-    <!-- [pageSize]="10" -->
-    <!-- showFirstLastButtons -->
-        <!-- aria-label="Select page of periodic elements"> -->

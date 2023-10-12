@@ -42,7 +42,7 @@ export class SnackBarService
                     }),
                     cancel : this._formBuilder.group({
                         show : true,
-                        label: 'cancel'
+                        label: 'خروج'
                     })
                 }),
                 dismissible: false

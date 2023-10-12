@@ -1,0 +1,27 @@
+<ng-container *ngIf="type=='voice'">
+    <div class="w-full">
+    <app-test-voice [imageURL]="imageURL" 
+    [audioUrl]="audioUrl"
+    (nextQuestion)="nextQuestion($event)">
+    </app-test-voice>
+</div>
+</ng-container> 
+
+<ng-container *ngIf="type=='multi-connect'">
+    <div class="w-full">
+        <app-test-multi-connect 
+        [connections]="answers"
+        (nextQuestion)="nextQuestion($event)">
+        </app-test-multi-connect>
+    </div>
+</ng-container>  
+
+<ng-container *ngIf="type=='multi-select'">
+    <div class="w-full">
+        <app-test-select-multi-option 
+        [data]="answers"
+        [question]="question['question_name']"
+        (nextQuestion)="nextQuestion($event)">
+        </app-test-select-multi-option>
+    </div>
+</ng-container> 

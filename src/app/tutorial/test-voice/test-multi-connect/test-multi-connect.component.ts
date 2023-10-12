@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Shared } from 'app/tutorial/shared/shared';
 
@@ -16,17 +16,19 @@ export class TestMultiConnectComponent extends Shared implements OnInit {
   // rightColumn = ['Animal', 'Number', 'Alphabeta'];
   leftColumn: string[] = [];
   rightColumn: string[] = [];
-  connections: { left: string, right: string }[] = [
-    { left: '1', right: 'Number' },
-    { left: 'a', right: 'Alphabeta' },
-    { left: 'Elephant', right: 'Animal' }
-  ];
+  @Output() nextQuestion = new EventEmitter<any>();
+  @Input('connections') connections : { left: string, right: string }[];
+  // connections: { left: string, right: string }[] = [
+  //   { left: '1', right: 'Number' },
+  //   { left: 'a', right: 'Alphabeta' },
+  //   { left: 'Elephant', right: 'Animal' }
+  // ];
 
   selectedLeftItem: string | null = null;
   selectedRightItem: string | null = null;
   selectedItemColor: string = '';
   ngOnInit(): void {
-
+console.log(this.connections);
 
     for (const connection of this.connections) {
       if (!this.leftColumn.includes(connection.left)) {
@@ -99,6 +101,20 @@ export class TestMultiConnectComponent extends Shared implements OnInit {
 
   goToNextPage()
   {
-    this._router.navigateByUrl('/test/test-count');
+    var data={
+      isTrue:true,
+      answer:'all Answers Is Connected'
+    };
+    this.nextQuestion.emit(data);
+    //this._router.navigateByUrl('/test/test-count');
+  }
+  goToNextPageWithFalse()
+  {
+    var data={
+      isTrue:false,
+      answer:'an answers is false'
+    };
+    this.nextQuestion.emit(data);
+    //this._router.navigateByUrl('/test/test-count');
   }
 }

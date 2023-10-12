@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { UserBoxComponent } from './user-box/user-box.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -22,6 +23,7 @@ export class UserComponent extends Shared implements OnInit {
   constructor(
     private _userService: UserService,
     private _matDialog: MatDialog,
+    private _router: Router,
   ) {
     super();
   }
@@ -115,7 +117,10 @@ export class UserComponent extends Shared implements OnInit {
 
 
 
-
+  goToInfoPage(event)
+  {
+    this._router.navigateByUrl('/user/user-dashboard/'+event.id);
+  }
 
 
 

@@ -31,6 +31,7 @@ import { userRoutes } from "./user.routing";
 import { ErpGridComponent } from "../components/erp-grid/erp-grid.component";
 import { ErpGridModule } from "../components/erp-grid/erp-grid.module";
 import { UserBoxComponent } from './user-box/user-box.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { UserBoxComponent } from './user-box/user-box.component';
     declarations: [
  UserComponent,
  UserBoxComponent,
+ DashboardComponent,
   ]
 })
 export class UserModule
