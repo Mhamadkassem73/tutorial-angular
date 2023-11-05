@@ -93,7 +93,7 @@ export class AuthSignInComponent implements OnInit
            // this._splashScreenService.getUtilities();
             //this._router.navigateByUrl('/user');
             setTimeout(() => {
-                this._router.navigateByUrl('/test/question');  
+                this._router.navigateByUrl('/test/level-page');  
             }, 100);
            
         },(error) =>{

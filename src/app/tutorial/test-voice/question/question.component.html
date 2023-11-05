@@ -15,6 +15,15 @@
         </app-test-multi-connect>
     </div>
 </ng-container>  
+<ng-container *ngIf="type=='checkTrue'">
+    <div class="w-full">
+        <app-test-check-true-phrase 
+        [question]="question"
+        [answers]="answers"
+        (nextQuestion)="nextQuestion($event)">
+        </app-test-check-true-phrase>
+    </div>
+</ng-container>  
 
 <ng-container *ngIf="type=='multi-select'">
     <div class="w-full">

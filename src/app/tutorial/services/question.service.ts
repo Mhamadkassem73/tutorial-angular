@@ -20,10 +20,14 @@ export class QuestionService
     {
         return this._customHttpClient.get(api.fetchFirstQuestion);
     }
-    
-    public selectAnswersByuser(userId): Observable<any>
+    public fetchLessons(): Observable<any>
     {
-        return this._customHttpClient.get(api.selectAnswersByuser+'/'+userId);
+        return this._customHttpClient.get(api.fetchLessons);
+    }
+    
+    public selectAnswersByuser(data): Observable<any>
+    {
+        return this._customHttpClient.post(api.selectAnswersByuser,data);
     }
     public fetchNextQuestionById(questionId,event:{isTrue:boolean,answer:string}): Observable<any>
     {

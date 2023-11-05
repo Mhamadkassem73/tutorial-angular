@@ -8,6 +8,7 @@ import { TestFinalComponent } from "./test-final/test-final.component";
 import { TestCountComponent } from "./test-count/test-count.component";
 import { TestCheckTruePhraseComponent } from "./test-check-true-phrase/test-check-true-phrase.component";
 import { QuestionComponent } from "./question/question.component";
+import { LevelPageComponent } from "./level-page/level-page.component";
 
 
 
@@ -49,7 +50,10 @@ export const TestVoiceRoutes: Route[] = [
     {
         path     : 'question',
         component: QuestionComponent
-
+    },
+    {
+        path     : 'level-page',
+        component: LevelPageComponent
     },
 
 ];

@@ -1,0 +1,86 @@
+/* General styles */
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background-color: #fce7c4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .component-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  
+  .audio-section {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .audio-player {
+    display: none; /* Hide the audio player for now */
+  }
+  
+  .play-button {
+    background-color: #f76d57;
+    border: none;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+
+  
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .next-button {
+    background-color: #ffcc29;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  .image-container {
+    max-width: 60%; /* Ensures the image scales down proportionally */
+    max-height: 60%; /* Ensures the image scales down proportionally */
+    height: auto; /* Allows the height to adjust automatically based on the width */
+    margin-bottom: 5px;
+  }
+  @media (max-width: 769px) {
+    .image-container {
+      max-width: 100%; /* Ensures the image scales down proportionally */
+      max-height: 100%; /* Ensures the image scales down proportionally */
+    }
+  }

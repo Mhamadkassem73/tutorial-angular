@@ -37,7 +37,8 @@ import { TestMultiConnectComponent } from './test-multi-connect/test-multi-conne
 import { TestFinalComponent } from './test-final/test-final.component';
 import { TestCountComponent } from './test-count/test-count.component';
 import { TestCheckTruePhraseComponent } from './test-check-true-phrase/test-check-true-phrase.component';
-import { QuestionComponent } from './question/question.component'; 
+import { QuestionComponent } from './question/question.component';
+import { LevelPageComponent } from './level-page/level-page.component'; 
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { QuestionComponent } from './question/question.component';
         TestCountComponent,
         TestCheckTruePhraseComponent,
         QuestionComponent,
+        LevelPageComponent,
     ]
 })
 export class TestVoiceModule {

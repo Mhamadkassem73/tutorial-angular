@@ -11,5 +11,6 @@ export const api = {
     'fetchNextQuestionById': environment.appUrl + 'fetchNextQuestionById',
     'fetchFirstQuestion': environment.appUrl + 'fetchFirstQuestion',
     'selectAnswersByuser': environment.appUrl + 'selectAnswersByuser',
+    'fetchLessons': environment.appUrl + 'fetchLessons',
     //question
 };

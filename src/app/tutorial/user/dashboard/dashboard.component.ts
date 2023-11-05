@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -17,17 +18,19 @@ export class DashboardComponent extends Shared implements OnInit {
   @ViewChild('userGrid') userGrid: ErpGridComponent;
   @ViewChild(MatPaginator) private _paginator: MatPaginator;
   @ViewChild(MatSort) private _sort: MatSort;
- userId: any ;
+  userId: any;
   dialogRef;
-
+  lessons = [];
   constructor(
-    private _questionService:QuestionService ,
+    private _questionService: QuestionService,
     private _matDialog: MatDialog,
     private _router: Router,
-    private route:ActivatedRoute
+    private route: ActivatedRoute,
+    private _formBuilder: FormBuilder,
   ) {
     super();
   }
+  dashboardForm: FormGroup;
   currentPage = 0;
   pageSize = 10;
   length = 0;
@@ -35,7 +38,7 @@ export class DashboardComponent extends Shared implements OnInit {
     {
       columnDef: 'question',
       header: 'question',
-      cell: (element) => `${element.userAnswer_question|| ''}`,
+      cell: (element) => `${element.userAnswer_question || ''}`,
     },
     {
       columnDef: 'user Answer',
@@ -51,48 +54,49 @@ export class DashboardComponent extends Shared implements OnInit {
     {
       columnDef: 'ISTRUE',
       header: 'IS TRUE',
-      type : 'highlight',
-      cellCode : (element) => `${!element.userAnswer_isTrue ?  'warn':'success' }`,
-      cell: (element) => `${!element.userAnswer_isTrue ? 'False' : 'True' }`,
+      type: 'highlight',
+      cellCode: (element) => `${!element.userAnswer_isTrue ? 'warn' : 'success'}`,
+      cell: (element) => `${!element.userAnswer_isTrue ? 'False' : 'True'}`,
     },
 
   ];
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(parms=>{
-      this.userId=parms.get('id');
+    this.dashboardForm = this._formBuilder.group({
+      lessons: ['', Validators.required],
     })
-    this.fetchUser();
+    this.route.paramMap.subscribe(parms => {
+      this.userId = parms.get('id');
+    });
+    this._questionService.fetchLessons().subscribe(response => {
+      this.lessons = response['data'];
+;
+    });
+    //this.fetchQuestionAnswers();
   }
 
 
 
 
-  fetchUser(): Promise<any> {
+  fetchQuestionAnswers(event?): Promise<any> {
+
+    console.log(this.dashboardForm.get("lessons").value);
     return new Promise((resolve, reject) => {
-
-
-
-
       var skip = this.currentPage * this.pageSize;
       var take = this.pageSize;
 
       //this.formAreas.disable();
-      //this._areasService.fetchUser(this.formAreas.value.status).subscribe(response => {
+      //this._areasService.fetchQuestionAnswers(this.formAreas.value.status).subscribe(response => {
       let payload = {
-        skip: skip,
-        take: take
+        userId: this.userId,
+        lesson: this.dashboardForm.get("lessons").value
       }
 
-      this._questionService.selectAnswersByuser(this.userId).subscribe(response => {
+      this._questionService.selectAnswersByuser(payload).subscribe(response => {
         console.log(response);
-
         this.userGrid.dataSource.data = response['data']['answers'];
-
         this.length = response['count'];
-
         this.userGrid.displayedColumns = this.columns.map(c => c.columnDef);
-
         this.userGrid.dataSource.sort = this._sort;
       }, error => {
         console.log(error);
@@ -104,7 +108,7 @@ export class DashboardComponent extends Shared implements OnInit {
   handlePage(event) {
     this.currentPage = event.pageIndex;
     this.pageSize = event.pageSize;
-    this.fetchUser().then(response => {
+    this.fetchQuestionAnswers().then(response => {
     })
   }
 

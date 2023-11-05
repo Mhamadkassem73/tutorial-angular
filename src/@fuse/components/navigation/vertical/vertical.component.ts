@@ -755,10 +755,10 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
         this.navigation = [
             {
                 id: "question",
-                title: 'question',
+                title: 'المرحلة الأولى',
                 type: "basic",
                 icon: "heroicons_solid:location-marker",
-                link: "test/question",
+                link: "test/level-page",
             },
             {
                 id: "users",
@@ -776,71 +776,71 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
                     }
                 ]
             },
-            {
-                id: "test",
-                title: "test",
-                type: "collapsable",
-                icon: "heroicons_solid:desktop-computer",
-                hidden:false,
-                children: [
-                    {
-                        id: "test-voice",
-                        title: 'test-voice',
-                        type: "basic",
-                        icon: "heroicons_solid:location-marker",
-                        link: "test/test-voice",
-                    },
-                    {
-                        id: "test-drag-drop",
-                        title: 'test-drag-drop',
-                        type: "basic",
-                        icon: "heroicons_solid:location-marker",
-                        link: "test/test-drag-drop",
-                    },
-                    {
-                        id: "test-select-one-option",
-                        title: 'test-select-one-option',
-                        type: "basic",
-                        icon: "heroicons_solid:location-marker",
-                        link: "test/test-select-one-option",
-                    },
-                    {
-                        id: "test-select-multi-options",
-                        title: 'test-select-multi-options',
-                        type: "basic",
-                        icon: "heroicons_solid:location-marker",
-                        link: "test/test-select-multi-options",
-                    },
-                    {
-                        id: "test-multi-connect",
-                        title: 'test-multi-connect',
-                        type: "basic",
-                        icon: "heroicons_solid:location-marker",
-                        link: "test/test-multi-connect",
-                    },
-                    {
-                        id: "test-count",
-                        title: 'test-count',
-                        type: "basic",
-                        icon: "heroicons_solid:location-marker",
-                        link: "test/test-count",
-                    },
-                    {
-                        id: "test-true-phrase",
-                        title: 'test-true-phrase',
-                        type: "basic",
-                        icon: "heroicons_solid:location-marker",
-                        link: "test/test-true-phrase",
-                    },
-                    {
-                        id: "test-final",
-                        title: 'test-final',
-                        type: "basic",
-                        icon: "heroicons_solid:location-marker",
-                        link: "test/test-final",
-                    },
-                ]
-            },
+            // {
+            //     id: "test",
+            //     title: "test",
+            //     type: "collapsable",
+            //     icon: "heroicons_solid:desktop-computer",
+            //     hidden:false,
+            //     children: [
+            //         {
+            //             id: "test-voice",
+            //             title: 'test-voice',
+            //             type: "basic",
+            //             icon: "heroicons_solid:location-marker",
+            //             link: "test/test-voice",
+            //         },
+            //         {
+            //             id: "test-drag-drop",
+            //             title: 'test-drag-drop',
+            //             type: "basic",
+            //             icon: "heroicons_solid:location-marker",
+            //             link: "test/test-drag-drop",
+            //         },
+            //         {
+            //             id: "test-select-one-option",
+            //             title: 'test-select-one-option',
+            //             type: "basic",
+            //             icon: "heroicons_solid:location-marker",
+            //             link: "test/test-select-one-option",
+            //         },
+            //         {
+            //             id: "test-select-multi-options",
+            //             title: 'test-select-multi-options',
+            //             type: "basic",
+            //             icon: "heroicons_solid:location-marker",
+            //             link: "test/test-select-multi-options",
+            //         },
+            //         {
+            //             id: "test-multi-connect",
+            //             title: 'test-multi-connect',
+            //             type: "basic",
+            //             icon: "heroicons_solid:location-marker",
+            //             link: "test/test-multi-connect",
+            //         },
+            //         {
+            //             id: "test-count",
+            //             title: 'test-count',
+            //             type: "basic",
+            //             icon: "heroicons_solid:location-marker",
+            //             link: "test/test-count",
+            //         },
+            //         {
+            //             id: "test-true-phrase",
+            //             title: 'test-true-phrase',
+            //             type: "basic",
+            //             icon: "heroicons_solid:location-marker",
+            //             link: "test/test-true-phrase",
+            //         },
+            //         {
+            //             id: "test-final",
+            //             title: 'test-final',
+            //             type: "basic",
+            //             icon: "heroicons_solid:location-marker",
+            //             link: "test/test-final",
+            //         },
+            //     ]
+            // },
         ];
         this.register=true;
     }

@@ -1,4 +1,4 @@
-<div class="sm:inset-0 sm:absolute sm:inset-0 flex flex-col flex-auto min-w-0 sm:overflow-hidden bg-card dark:bg-transparent">
+<div class="sm:inset-0 sm:absolute sm:inset-0 flex flex-col flex-auto min-w-0 sm:overflow-hidden bg-card dark:bg-transparent" *ngIf="lessons">
 
     <!-- Header -->
     <div class="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between p-4 sm:py-4 md:px-8 border-b bg-card dark:bg-transparent">
@@ -15,30 +15,18 @@
         <div class="flex items-center mt-4 sm:mt-0 md:mt-4">
             <!-- Search -->
             <div class="flex-auto">
-                <!-- <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded w-full min-w-50">
-                    <mat-icon
-                        class="icon-size-5"
-                        matPrefix
-                        [svgIcon]="'heroicons_solid:search'">
-                    </mat-icon>
-                    <input
-                        matInput
-                        (keyup)="applyFilter($event)"
-                        [autocomplete]="'off'"
-                        [placeholder]="getLabel('search')">
-                </mat-form-field> -->
-            </div>
-            
-                <!-- <button
-                (click)="addUser()" 
-            class="sm:inline-flex ml-3" mat-flat-button [color]="'primary'">
-                <mat-icon class="icon-size-5" 
 
-                [svgIcon]=" 'heroicons_outline:plus' "></mat-icon>
-                <span class="ml-2">{{getLabel('add')}}</span>
-            </button> -->
+            </div>
             </div>
 
+        </div>
+        <div class="w-1/2 m-4">
+            <app-dropdown-field [optionValue]=" 'lesson_id' " [optionName]=" 'lesson_name' "
+            [options]="lessons" class="w-full pr-2" [label]=" 'lessons' "
+            [blank]="true"
+            (onDropdownSelection)="fetchQuestionAnswers($event)"
+            [control]=" 'lessons' " [form]="dashboardForm">
+        </app-dropdown-field>
         </div>
 
         <div class="flex flex-auto overflow-hidden">
