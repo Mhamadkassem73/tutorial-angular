@@ -4,6 +4,7 @@ export const api = {
     'fetchUser': environment.appUrl + 'fetchUser',
     'addUser': environment.appUrl + 'addUser',
     'updateUser': environment.appUrl + 'updateUser',
+    'signUp': environment.appUrl + 'signUp',
     'signIn': environment.appUrl + 'signIn',
 
 

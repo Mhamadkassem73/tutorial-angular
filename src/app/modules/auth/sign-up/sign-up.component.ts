@@ -4,19 +4,19 @@ import { Router } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
+import { UserService } from 'app/tutorial/services/user.service';
 
 @Component({
-    selector     : 'auth-sign-up',
-    templateUrl  : './sign-up.component.html',
+    selector: 'auth-sign-up',
+    templateUrl: './sign-up.component.html',
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations: fuseAnimations
 })
-export class AuthSignUpComponent implements OnInit
-{
+export class AuthSignUpComponent implements OnInit {
     @ViewChild('signUpNgForm') signUpNgForm: NgForm;
 
     alert: { type: FuseAlertType; message: string } = {
-        type   : 'success',
+        type: 'success',
         message: ''
     };
     signUpForm: FormGroup;
@@ -27,10 +27,10 @@ export class AuthSignUpComponent implements OnInit
      */
     constructor(
         private _authService: AuthService,
+        private _userService: UserService,
         private _formBuilder: FormBuilder,
         private _router: Router
-    )
-    {
+    ) {
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -40,16 +40,16 @@ export class AuthSignUpComponent implements OnInit
     /**
      * On init
      */
-    ngOnInit(): void
-    {
+    ngOnInit(): void {
         // Create the form
         this.signUpForm = this._formBuilder.group({
-                name      : ['', Validators.required],
-                email     : ['', [Validators.required, Validators.email]],
-                password  : ['', Validators.required],
-                company   : [''],
-                agreements: ['', Validators.requiredTrue]
-            }
+            name: ['', Validators.required],
+            userName: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]],
+            phone: ['', Validators.required],
+            password: ['', Validators.required],
+            agreements: ['']
+        }
         );
     }
 
@@ -60,43 +60,41 @@ export class AuthSignUpComponent implements OnInit
     /**
      * Sign up
      */
-    signUp(): void
-    {
+    signUp(): void {
+        console.log(this.signUpForm.value);
         // Do nothing if the form is invalid
-        if ( this.signUpForm.invalid )
-        {
+        if (this.signUpForm.invalid) {
             return;
         }
 
         // Disable the form
-        this.signUpForm.disable();
+       // this.signUpForm.disable();
 
-        // Hide the alert
-        this.showAlert = false;
+        console.log(this.signUpForm.value);
 
-        // Sign up
-        this._authService.signUp(this.signUpForm.value)
+        // this._userService.signUp(this.signUpForm.value).subscribe(response=>{
+        //     console.log(response);
+        // },error=>{
+
+        //     console.log(error);
+        // });
+        this._userService.signUp(this.signUpForm.value)
             .subscribe(
                 (response) => {
-
-                    // Navigate to the confirmation required page
+                    console.log(response);
                     this._router.navigateByUrl('/confirmation-required');
                 },
-                (response) => {
-
-                    // Re-enable the form
+                (error) => {
+                    console.log(error);
                     this.signUpForm.enable();
-
-                    // Reset the form
-                    this.signUpNgForm.resetForm();
-
-                    // Set the alert
+                    var msg = 'Something went wrong, please try again.';
+                    if (error.code == 409) {
+                        msg = "userNameOrEmailExist";
+                    }
                     this.alert = {
-                        type   : 'error',
-                        message: 'Something went wrong, please try again.'
+                        type: 'error',
+                        message: msg
                     };
-
-                    // Show the alert
                     this.showAlert = true;
                 }
             );

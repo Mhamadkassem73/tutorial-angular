@@ -30,11 +30,16 @@ export class TestCheckTruePhraseComponent extends Shared implements OnInit {
   // ];
   ngOnInit(): void {
     console.log(this.answers);
-    this.phrases = [
-      {
-        text: this.question['question_name'], isChecked: false, istrue: this.answers[0]['isTrue']
-      }
-    ];
+    this.phrases = []; 
+    for (var i = 0; i < this.answers.length; i++) {
+      this.phrases.push({
+        text: this.answers[i]['value'], // Assigns 'value' from answers to 'text' property
+        isChecked: false, // Sets 'isChecked' property to false
+        istrue: this.answers[i]['isTrue'] // Assigns 'isTrue' from answers to 'istrue' property
+      });
+    }
+
+
 
     console.log(this.phrases);
 

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { BooleanInput } from '@angular/cdk/coercion';
 import { Subject, takeUntil } from 'rxjs';
 import { User } from 'app/core/user/user.types';
-import { UserService } from 'app/core/user/user.service';
+import { UserService } from 'app/tutorial/services/user.service';
 
 @Component({
     selector       : 'user',
@@ -20,7 +20,7 @@ export class UserComponent implements OnInit, OnDestroy
 
     @Input() showAvatar: boolean = true;
     user: User;
-
+    userLogin:String;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
@@ -29,7 +29,8 @@ export class UserComponent implements OnInit, OnDestroy
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
         private _router: Router,
-        private _userService: UserService
+        // private _userService: UserService
+        private _userService: UserService,
     )
     {
     }
@@ -43,15 +44,19 @@ export class UserComponent implements OnInit, OnDestroy
      */
     ngOnInit(): void
     {
-        // Subscribe to user changes
-        this._userService.user$
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((user: User) => {
-                this.user = user;
 
-                // Mark for check
-                this._changeDetectorRef.markForCheck();
-            });
+        this.userLogin=this._userService.getName();
+        // // Subscribe to user changes
+        // this._userService.user$
+        //     .pipe(takeUntil(this._unsubscribeAll))
+        //     .subscribe((user: User) => {
+        //         this.user = user;
+
+        //         // Mark for check
+        //         this._changeDetectorRef.markForCheck();
+        //     });
+
+
     }
 
     /**
@@ -82,10 +87,10 @@ export class UserComponent implements OnInit, OnDestroy
         }
 
         // Update the user
-        this._userService.update({
-            ...this.user,
-            status
-        }).subscribe();
+        // this._userService.update({
+        //     ...this.user,
+        //     status
+        // }).subscribe();
     }
 
     /**
@@ -93,6 +98,7 @@ export class UserComponent implements OnInit, OnDestroy
      */
     signOut(): void
     {
+        this._userService.removeToken();
         this._router.navigate(['/sign-out']);
     }
 }

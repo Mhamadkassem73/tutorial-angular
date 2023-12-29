@@ -8,31 +8,44 @@ import { Router } from '@angular/router';
   templateUrl: './test-voice.component.html',
   styleUrls: ['./test-voice.component.scss']
 })
-export class TestVoiceComponent extends Shared implements OnInit,AfterViewInit{
+export class TestVoiceComponent extends Shared implements OnInit, AfterViewInit {
   @ViewChild('audioPlayer', { static: true }) audioPlayer: ElementRef<HTMLAudioElement>;
-  @Input('imageURL') imageURL :string;
-  @Input('audioUrl') audioUrl :string;
+  @Input('imageURL') imageURL: string;
+  @Input('audioUrl') audioUrl: string;
+  @Input('answers') answers = [];
+  lastVoice: number = 0;
   @Output() nextQuestion = new EventEmitter<any>();
   // imageURL:string='http://192.168.0.65:8000/levels/1/1/1/image/1.png';
   // audioUrl: string = 'http://192.168.0.65:8000/levels/1/1/1/image/1.png'; // Replace with your audio URL
   constructor(
-    private _router:Router
-  ) {super(); }
+    private _router: Router
+  ) { super(); }
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-        // Load the audio file 
+    // Load the audio file 
     this.audioPlayer.nativeElement.load();
-this.playAudio();
+    this.playAudio();
   }
   playAudio(): void {
     // Play the audio when the button is clicked
-    this.audioPlayer.nativeElement.play();
+    const audioPlayer: HTMLAudioElement = this.audioPlayer.nativeElement;
+    audioPlayer.load();
+    audioPlayer.play();
   }
-  goToNextPage():void
-  {
-    this.nextQuestion.emit(true);
-    //this._router.navigateByUrl('/test/test-drag-drop');
+  goToNextPage(): void {
+    console.log(this.answers);
+    if (this.answers.length > 0 && this.lastVoice < this.answers.length) {
+      this.audioUrl = this.answers[this.lastVoice].question_voice;
+      console.log(this.answers);
+      this.playAudio();
+      this.lastVoice++;
+    }
+    else {
+      this.nextQuestion.emit(true);
+    }
+
+
   }
 }

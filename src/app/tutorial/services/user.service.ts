@@ -35,7 +35,13 @@ export class UserService
     {
         return this._customHttpClient.put(api.updateUser+"/"+form['id'],form);
     }
+    signUp(user): Observable<any>
+    {
 
+        console.log(user);
+        console.log(api.signUp);
+        return this._customHttpClient.postWithoutHeaders(api.signUp, user);
+    }
 
 
 
@@ -45,7 +51,7 @@ export class UserService
         sessionStorage.setItem('name',name);
     }
 
-    public removeToken(token: string)
+    public removeToken()
     {
         sessionStorage.removeItem('Authorization');
     }
