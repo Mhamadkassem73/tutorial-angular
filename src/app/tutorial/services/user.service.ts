@@ -49,11 +49,12 @@ export class UserService
     {
         sessionStorage.setItem('Authorization',"bearer "+token);
         sessionStorage.setItem('name',name);
+        sessionStorage.setItem('hash',name);
     }
 
     public removeToken()
     {
-        sessionStorage.removeItem('Authorization');
+        sessionStorage.removeItem('Authorization'); 
     }
 
     public logout()

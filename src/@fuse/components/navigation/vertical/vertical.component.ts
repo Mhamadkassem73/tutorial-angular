@@ -9,6 +9,7 @@ import { FuseNavigationService } from '@fuse/components/navigation/navigation.se
 import { FuseScrollbarDirective } from '@fuse/directives/scrollbar/scrollbar.directive';
 import { FuseUtilsService } from '@fuse/services/utils/utils.service';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { UserService } from 'app/tutorial/services/user.service';
 
 @Component({
     selector       : 'fuse-vertical-navigation',
@@ -67,6 +68,7 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
         private _elementRef: ElementRef,
         private _renderer2: Renderer2,
         private _router: Router,
+        private _userService:UserService,
         private _scrollStrategyOptions: ScrollStrategyOptions,
         private _fuseNavigationService: FuseNavigationService,
         private _fuseUtilsService: FuseUtilsService
@@ -752,6 +754,9 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
     registerNavigation() {
         this.register=false;
         this.navigation = []; // reset to default
+
+
+  
         this.navigation = [
             {
                 id: "question",
@@ -765,7 +770,7 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
                 title: "users",
                 type: "collapsable",
                 icon: "heroicons_solid:desktop-computer",
-                hidden:false,
+                hidden:this._userService.getName()=='admin'?false:true,
                 children: [
                     {
                         id: "users",
@@ -843,6 +848,10 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
             // },
         ];
         this.register=true;
+
+
+
+        
     }
 
 }

@@ -1,7 +1,7 @@
 <div class="container" >
   <div class="header">
     <div class="component-container">
-      <div class="audio-section">
+      <div class="audio-section" *ngIf="audioUrl!=null && audioUrl!='' && audioUrl!=' c'">
 
         <button class="play-button" (click)="playAudio()"></button>
         <audio #audioPlayer controls class="audio-player">

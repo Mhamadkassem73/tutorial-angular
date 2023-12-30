@@ -25,12 +25,17 @@ export class TestVoiceComponent extends Shared implements OnInit, AfterViewInit 
 
   ngAfterViewInit(): void {
     // Load the audio file 
-    const audioPlayer: HTMLAudioElement = this.audioPlayer.nativeElement;
-    this.audioPlayer.nativeElement.load();
-    this.playAudio();
-    audioPlayer.addEventListener('ended', () => {
-      this.goToNextVoice();
-    });
+
+    if(this.audioUrl)
+    {
+      const audioPlayer: HTMLAudioElement = this.audioPlayer.nativeElement;
+      this.audioPlayer.nativeElement.load();
+      this.playAudio();
+      audioPlayer.addEventListener('ended', () => {
+        this.goToNextVoice();
+      });
+    }
+
   }
   playAudio(): void {
     // Play the audio when the button is clicked
