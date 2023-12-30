@@ -59,12 +59,12 @@ export class TestCheckTruePhraseComponent extends Shared implements OnInit {
     });
 
     if (trueAnswer) {
-      this._snackBarService.snackBarPopup("الاجابة صحيحة", "ok");
+      this._snackBarService.snackBarPopup("الاجابة صحيحة", "نعم");
       this.next();
 
     }
     else {
-      this._snackBarService.openConfirmationDialog("الاجابة غير صحيحة", "الاجابة غير صحيحة", "confirm", "go to next").then(response => {
+      this._snackBarService.openConfirmationDialog("الاجابة غير صحيحة", "الاجابة غير صحيحة", "confirm", "التالي").then(response => {
         if (response == 'confirmed') {
           this.next();
 

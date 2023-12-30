@@ -30,12 +30,12 @@ imageHeight: number = 10; // Set the height in pixels
   {
     if(this.count== number)
     {
-      this._snackBarService.snackBarPopup("bravo!!","ok");
+      this._snackBarService.snackBarPopup("أحسنت","نعم");
       this._router.navigateByUrl('/test/test-true-phrase');
     }
    else
     {
-      this._snackBarService.openConfirmationDialog("الاجابة غير صحيحة","الاجابة الصحيحة هي  " +this.count,"confirm","go to next").then(response => {
+      this._snackBarService.openConfirmationDialog("الاجابة غير صحيحة","الاجابة الصحيحة هي  " +this.count,"confirm","التالي").then(response => {
         if(response =='confirmed' )
         {
           this._router.navigateByUrl('/test/test -true-phrase');

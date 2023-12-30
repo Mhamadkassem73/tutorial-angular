@@ -25,8 +25,12 @@ export class TestVoiceComponent extends Shared implements OnInit, AfterViewInit 
 
   ngAfterViewInit(): void {
     // Load the audio file 
+    const audioPlayer: HTMLAudioElement = this.audioPlayer.nativeElement;
     this.audioPlayer.nativeElement.load();
     this.playAudio();
+    audioPlayer.addEventListener('ended', () => {
+      this.goToNextVoice();
+    });
   }
   playAudio(): void {
     // Play the audio when the button is clicked
@@ -35,6 +39,9 @@ export class TestVoiceComponent extends Shared implements OnInit, AfterViewInit 
     audioPlayer.play();
   }
   goToNextPage(): void {
+    this.nextQuestion.emit(true);
+  }
+  goToNextVoice(): void {
     console.log(this.answers);
     if (this.answers.length > 0 && this.lastVoice < this.answers.length) {
       this.audioUrl = this.answers[this.lastVoice].question_voice;
@@ -42,10 +49,8 @@ export class TestVoiceComponent extends Shared implements OnInit, AfterViewInit 
       this.playAudio();
       this.lastVoice++;
     }
-    else {
-      this.nextQuestion.emit(true);
-    }
 
 
   }
+
 }

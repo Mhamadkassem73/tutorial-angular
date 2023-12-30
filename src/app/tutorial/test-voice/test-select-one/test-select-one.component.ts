@@ -42,7 +42,7 @@ question="ما هي الكلمة التي تبدأ بحرف ال ب";
     }
    else
     {
-      this._snackBarService.openConfirmationDialog("الاجابة غير صحيحة","الاجابة الصحيحة هي باب ","confirm","go to next").then(response => {
+      this._snackBarService.openConfirmationDialog("الاجابة غير صحيحة","الاجابة الصحيحة هي باب ","confirm","التالي").then(response => {
         if(response =='confirmed' )
         {
           this._router.navigateByUrl('/test/test-select-multi-options');
