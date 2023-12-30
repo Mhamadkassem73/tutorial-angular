@@ -86,12 +86,9 @@ export class AuthSignInComponent implements OnInit
             // Navigate to the redirect url
             this._loggerService.logger(this.signInForm.value);
             this._loggerService.logger(response);
-           // const redirectURL = this._activatedRoute.snapshot.queryParamMap.get('redirectURL') || '/signed-in-redirect';
             const token = response.data.token_type+" "+response.data.access_token;
             this._userService.setToken(response.data.access_token,response.data.user.name);
-            //this._userService.loggedUser.next(response.data.data); // emit user info
-           // this._splashScreenService.getUtilities();
-            //this._router.navigateByUrl('/user');
+
             setTimeout(() => {
                 this._router.navigateByUrl('/test/level-page');  
             }, 100);

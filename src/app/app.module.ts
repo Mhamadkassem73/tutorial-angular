@@ -30,6 +30,8 @@ import { DropdownFieldModule } from './tutorial/components/dropdown-field/dropdo
 import { InputFieldModule } from './tutorial/components/input-field/input-field.module';
 import { TextAreadModule } from './tutorial/components/text-area/text-area.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth-interceptor';
 const routerConfig: ExtraOptions = {
     preloadingStrategy       : PreloadAllModules,
     scrollPositionRestoration: 'enabled'
@@ -77,7 +79,14 @@ const routerConfig: ExtraOptions = {
     ],
     bootstrap   : [
         AppComponent
-    ]
+    ],
+    providers: [
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthInterceptor,
+          multi: true,
+        },
+      ],
 })
 export class AppModule
 {
