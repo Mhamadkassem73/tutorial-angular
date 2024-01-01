@@ -68,6 +68,10 @@ console.log(this.connections);
           this.selectedLeftItem = null;
           this.selectedRightItem = null;
           this.selectedItemColor = '';
+          if(this.leftColumn.length==0)
+          {
+            this.goToNextPage();
+          }
         }, 350); // Reset selections and color after 1 second
       } else {
         console.log("error"); // Log an error for incorrect matches
