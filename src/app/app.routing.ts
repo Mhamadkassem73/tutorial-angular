@@ -77,7 +77,8 @@ export const appRoutes: Route[] = [
         children   : [
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
             {path: 'user', loadChildren: () => import('app/tutorial/user/user.module').then(m => m.UserModule)},
-            {path: 'test', loadChildren: () => import('app/tutorial/test-voice/test-voice.module').then(m=>m.TestVoiceModule)}
+            {path: 'test', loadChildren: () => import('app/tutorial/test-voice/test-voice.module').then(m=>m.TestVoiceModule)},
+            {path: 'zoom', loadChildren: () => import('app/tutorial/zoom/zoom.module').then(m=>m.ZoomModule)}
         ]
     }
 ];

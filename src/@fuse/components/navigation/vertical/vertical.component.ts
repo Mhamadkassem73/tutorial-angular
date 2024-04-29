@@ -766,6 +766,13 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
                 link: "test/level-page",
             },
             {
+                id: "zoom",
+                title: 'zoom',
+                type: "basic",
+                icon: "heroicons_solid:location-marker",
+                link: "zoom",
+            },
+            {
                 id: "users",
                 title: "users",
                 type: "collapsable",

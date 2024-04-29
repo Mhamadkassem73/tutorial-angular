@@ -47,4 +47,5 @@ export const labels = {
     'purchaseJvOrderConfirmed' : 'Order confirmed',
     'next' : 'التالي',
 
+
 };

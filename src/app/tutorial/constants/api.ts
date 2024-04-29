@@ -14,4 +14,10 @@ export const api = {
     'selectAnswersByuser': environment.appUrl + 'selectAnswersByuser',
     'fetchLessons': environment.appUrl + 'fetchLessons',
     //question
+
+    //zoom
+    'fetchZoomById': environment.appUrl + 'fetchZoomById',
+    'createNewZoomMeeting': environment.appUrl + 'createNewZoomMeeting',
+    
+    //zoom
 };
