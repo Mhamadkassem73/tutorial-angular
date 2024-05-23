@@ -6,6 +6,8 @@ export const api = {
     'updateUser': environment.appUrl + 'updateUser',
     'signUp': environment.appUrl + 'signUp',
     'signIn': environment.appUrl + 'signIn',
+    'forgotPassEmail': environment.appUrl + 'forgotPassEmail',
+    'forgotPass': environment.appUrl + 'forgotPass',
 
 
     //question

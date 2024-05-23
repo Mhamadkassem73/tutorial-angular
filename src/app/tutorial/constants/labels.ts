@@ -46,6 +46,12 @@ export const labels = {
     'purchaseJvOrderUnConfirmed' : 'Order unconfirmed',
     'purchaseJvOrderConfirmed' : 'Order confirmed',
     'next' : 'التالي',
+    "name":"Name",
+    "user_name":"username",
+    "withprof":"withprof",
+    "isActive":"Is Active",
+    "active":"Active",
+    "phone":"Phone"
 
 
 };

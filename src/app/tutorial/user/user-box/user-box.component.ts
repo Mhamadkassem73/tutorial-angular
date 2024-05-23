@@ -58,6 +58,7 @@ export class UserBoxComponent extends Shared implements OnInit {
       userRole: ['' ],
       userEmail: ['',Validators.required],
       userPhone: [''],
+      withprof: [''],
       name: ['',Validators.required],
       userLevel: ['',Validators.required],
       password: ['0000',Validators.required],
@@ -74,6 +75,7 @@ export class UserBoxComponent extends Shared implements OnInit {
         userPhone: this.selectedUser.user_phone,
         name: this.selectedUser.name,
         userLevel: this.selectedUser.user_level,
+        withprof: this.selectedUser.user_withprof,
       });
     }
   }

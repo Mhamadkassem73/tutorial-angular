@@ -46,6 +46,16 @@ export class UserComponent extends Shared implements OnInit {
       header: 'phone',
       cell: (element: User) => `${element.user_phone || ''}`,
     },
+    {
+      columnDef: 'active',
+      header: 'active',
+      cell: (element: User) => `${element.user_isActive?"YES":"NO" || ''}`,
+    },
+    {
+      columnDef: 'withprof',
+      header: 'withprof',
+      cell: (element: User) => `${element.user_withprof?"YES":"NO" || ''}`,
+    },
 
   ];
 

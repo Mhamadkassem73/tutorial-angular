@@ -22,6 +22,14 @@ export class UserService
         console.log(api.signIn); 
         return this._customHttpClient.postWithoutHeaders(api.signIn,form);
     }
+    public forgotPassEmail(form:{email:string}): Observable<any>
+    {
+        return this._customHttpClient.postWithoutHeaders(api.forgotPassEmail,form);
+    }
+    public forgotPass(form): Observable<any>
+    {
+        return this._customHttpClient.postWithoutHeaders(api.forgotPass,form);
+    }
 
     public fetchUser(form): Observable<any>
     {

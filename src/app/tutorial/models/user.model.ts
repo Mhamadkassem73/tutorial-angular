@@ -10,4 +10,5 @@ export interface User
     user_phone,
     name,
     user_level,
+    user_withprof
 }

@@ -5,6 +5,7 @@ import { ErpGridComponent } from '../components/erp-grid/erp-grid.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Shared } from '../shared/shared';
+import { SnackBarService } from '../services/snack-bar.service';
 
 @Component({
   selector: 'app-zoom',
@@ -21,6 +22,7 @@ export class ZoomComponent extends Shared implements OnInit {
     private _zoomService: ZoomService,
     private _matDialog: MatDialog,
     private _router: Router,
+    private _snackBarService: SnackBarService,
   ) {
     super();
   }
@@ -74,6 +76,7 @@ export class ZoomComponent extends Shared implements OnInit {
         this.userGrid.displayedColumns = this.columns.map(c => c.columnDef);
       }, error => {
         console.log(error);
+
       });
     })
   }
@@ -87,6 +90,7 @@ export class ZoomComponent extends Shared implements OnInit {
       this.fetchZoomById();
     }, error => {
       console.log(error);
+      this._snackBarService.snackBarPopup(error.error.error,"ok");
     });
 
   }

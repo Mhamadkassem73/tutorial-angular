@@ -5,6 +5,7 @@ import { fuseAnimations } from '@fuse/animations';
 import { FuseValidators } from '@fuse/validators';
 import { FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
+import { UserService } from 'app/tutorial/services/user.service';
 
 @Component({
     selector     : 'auth-reset-password',
@@ -28,7 +29,8 @@ export class AuthResetPasswordComponent implements OnInit
      */
     constructor(
         private _authService: AuthService,
-        private _formBuilder: FormBuilder
+        private _formBuilder: FormBuilder,
+        private _userService:UserService
     )
     {
     }
@@ -44,6 +46,7 @@ export class AuthResetPasswordComponent implements OnInit
     {
         // Create the form
         this.resetPasswordForm = this._formBuilder.group({
+                key       : ['', Validators.required],
                 password       : ['', Validators.required],
                 passwordConfirm: ['', Validators.required]
             },
@@ -74,8 +77,16 @@ export class AuthResetPasswordComponent implements OnInit
         // Hide the alert
         this.showAlert = false;
 
+
+
+
+
+
+
+        
+
         // Send the request to the server
-        this._authService.resetPassword(this.resetPasswordForm.get('password').value)
+        this._userService.forgotPass(this.resetPasswordForm.value)
             .pipe(
                 finalize(() => {
 
